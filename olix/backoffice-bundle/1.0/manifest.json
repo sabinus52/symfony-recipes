@@ -1,0 +1,18 @@
+{
+    "bundles": {
+        "Olix\\BackOfficeBundle\\OlixBackOfficeBundle": ["all"]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/",
+        "src/": "%SRC_DIR%/"
+    },
+    "add-lines": [
+        {
+            "file": "assets/app.js",
+            "content": "import 'olix-backoffice/olixbo.min.css'; import 'olix-backoffice';",
+            "position": "after_target",
+            "target": "import './styles/app.css';",
+            "warn_if_missing": true
+        }
+    ]
+}
