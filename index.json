@@ -1,9 +1,10 @@
 {
+    "aliases": [],
     "recipes": {
         "olix/backoffice-bundle": ["1.0"]
     },
     "branch": "master",
-    "is_contrib": true,
+    "is_contrib": false,
     "_links": {
         "repository": "github.com/sabinus52/symfony-recipes",
         "origin_template": "{package}:{version}@github.com/sabinus52/symfony-recipes:master",
