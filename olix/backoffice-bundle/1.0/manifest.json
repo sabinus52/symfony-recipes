@@ -2,6 +2,9 @@
     "bundles": {
         "Olix\\BackOfficeBundle\\OlixBackOfficeBundle": ["all"]
     },
+    "copy-from-package": {
+        "config/packages/olix_bo.yaml": "%CONFIG_DIR%/packages/olix_bo.yaml"
+    },
     "copy-from-recipe": {
         "config/": "%CONFIG_DIR%/",
         "src/": "%SRC_DIR%/"
