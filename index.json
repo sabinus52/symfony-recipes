@@ -3,11 +3,16 @@
     "recipes": {
         "olix/backoffice-bundle": ["1.0"]
     },
+    "recipe-conflicts": [],
+    "versions": {
+        "splits": []
+    },
     "branch": "master",
     "is_contrib": false,
     "_links": {
         "repository": "github.com/sabinus52/symfony-recipes",
         "origin_template": "{package}:{version}@github.com/sabinus52/symfony-recipes:master",
-        "recipe_template": "https://api.github.com/repos/sabinus52/symfony-recipes/contents/{package_dotted}.{version}.json"
+        "recipe_template": "https://api.github.com/repos/sabinus52/symfony-recipes/contents/{package_dotted}.{version}.json",
+        "recipe_template_relative": "{package_dotted}.{version}.json"
     }
 }
