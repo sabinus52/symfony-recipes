@@ -19,7 +19,7 @@
                         "content": "import 'olix-backoffice/olixbo.min.css';\nimport 'olix-backoffice';",
                         "position": "after_target",
                         "target": "import './styles/app.css';",
-                        "warn_if_missing": true
+                        "requires": "symfony/asset-mapper"
                     }
                 ],
                 "post-install-output": [
