@@ -23,7 +23,14 @@
                     }
                 ],
                 "post-install-output": [
-                    "<bg=blue;fg=white> OlixBackOfficeBundle Installed </>"
+                    "<bg=blue;fg=white>                                </>",
+                    "<bg=blue;fg=white> OlixBackOfficeBundle Installed </>",
+                    "<bg=blue;fg=white>                                </>",
+                    "",
+                    "  * <fg=blue>Install</> the assets :",
+                    "      <comment>./bin/console importmap:require olix-backoffice</>",
+                    "",
+                    "  * <fg=blue>Read</> the documentation at <comment>https://github.com/sabinus52/OlixBackOfficeBundle/blob/master/docs/README.md</>"
                 ]
             },
             "files": {
@@ -98,7 +105,7 @@
                     ],
                     "executable": false
                 },
-                "templates/base.html.twig": {
+                "templates/base_bo.html.twig": {
                     "contents": [
                         "{% extends '@OlixBackOffice/layout.html.twig' %}",
                         "",
