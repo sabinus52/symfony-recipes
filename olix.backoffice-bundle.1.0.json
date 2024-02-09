@@ -6,11 +6,115 @@
                     "Olix\\BackOfficeBundle\\OlixBackOfficeBundle": ["all"]
                 },
                 "copy-from-package": {
-                    "config/packages/olix_bo.yaml": "%CONFIG_DIR%/packages/olix_bo.yaml"
+                    "config/packages/olix_bo.yaml": "%CONFIG_DIR%/packages/olix_bo.yaml",
+                    "config/routes/olix_bo.yaml": "%CONFIG_DIR%/routes/olix_bo.yaml"
                 },
+                "copy-from-recipe": {
+                    "src/": "%SRC_DIR%/",
+                    "templates/": "templates/"
+                },
+                "add-lines": [
+                    {
+                        "file": "assets/app.js",
+                        "content": "import 'olix-backoffice/olixbo.min.css';\nimport 'olix-backoffice';",
+                        "position": "after_target",
+                        "target": "import './styles/app.css';",
+                        "warn_if_missing": true
+                    }
+                ],
                 "post-install-output": [
                     "<bg=blue;fg=white> OlixBackOfficeBundle Installed </>"
                 ]
+            },
+            "files": {
+                "src/Entity/User.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "namespace App\\Entity;",
+                        "",
+                        "use App\\Repository\\UserRepository;",
+                        "use Doctrine\\ORM\\Mapping as ORM;",
+                        "use Olix\\BackOfficeBundle\\Model\\User as BaseUser;",
+                        "",
+                        "/**",
+                        " * Classe de l'entit\u00e9 des utilisateurs.",
+                        " */",
+                        "#[ORM\\Entity(repositoryClass: UserRepository::class)]",
+                        "class User extends BaseUser {}",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "src/Repository/UserRepository.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "namespace App\\Repository;",
+                        "",
+                        "use App\\Entity\\User;",
+                        "use Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository;",
+                        "use Doctrine\\Persistence\\ManagerRegistry;",
+                        "",
+                        "/**",
+                        " * Repository de l'entit\u00e9 Utilisateur.",
+                        " *",
+                        " * @method User|null find($id, $lockMode = null, $lockVersion = null)",
+                        " * @method User|null findOneBy(array $criteria, array $orderBy = null)",
+                        " * @method User[]    findAll()",
+                        " * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)",
+                        " */",
+                        "class UserRepository extends ServiceEntityRepository",
+                        "{",
+                        "    public function __construct(ManagerRegistry $registry)",
+                        "    {",
+                        "        parent::__construct($registry, User::class);",
+                        "    }",
+                        "}",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "templates/base-login.html.twig": {
+                    "contents": [
+                        "{% extends '@OlixBackOffice/Security/layout.html.twig' %}",
+                        "",
+                        "{% block login_logo %}<b>My Application</b>{% endblock %}",
+                        "",
+                        "{% block login_message %}Connection{% endblock %}",
+                        "",
+                        "{% block stylesheets %}",
+                        "\t{{ parent() }}",
+                        "{% endblock %}",
+                        "",
+                        "{% block javascripts %}",
+                        "\t{{ parent() }}",
+                        "{% endblock %}",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "templates/base.html.twig": {
+                    "contents": [
+                        "{% extends '@OlixBackOffice/layout.html.twig' %}",
+                        "",
+                        "{% block title %}My Application{% endblock %}",
+                        "",
+                        "{% block stylesheets %}",
+                        "\t{{ parent() }}",
+                        "{% endblock %}",
+                        "",
+                        "{% block javascripts %}",
+                        "\t{{ parent() }}",
+                        "{% endblock %}",
+                        ""
+                    ],
+                    "executable": false
+                }
             },
             "ref": "776aca065c97ee823e45ef354b5db48be3e95fb6"
         }
